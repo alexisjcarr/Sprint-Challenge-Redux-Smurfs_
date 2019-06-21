@@ -30,6 +30,24 @@ export const rootReducer = (state = initialState, action) => {
         fetchingSmurfs: false,
         error: action.payload
       };
+    case actionType.ADD_SMURF_PENDING:
+      return {
+        ...state,
+        addingSmurf: true,
+        error: ""
+      };
+    case actionType.ADD_SMURF_SUCCESS:
+      return {
+        ...state,
+        addingSmurf: false,
+        error: ""
+      };
+    case action.ADD_SMURF_FAILURE:
+      return {
+        ...state,
+        addingSmurf: false,
+        error: action.payload
+      };
     default:
       return state;
   }

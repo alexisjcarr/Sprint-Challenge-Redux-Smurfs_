@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { addSmurf } from "../actions";
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -51,4 +54,14 @@ class SmurfForm extends Component {
   }
 }
 
-export default SmurfForm;
+const mapStateToProps = state => {
+  return {
+    addingSmurf: state.addingSmurf,
+    error: state.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { addSmurf }
+)(SmurfForm);

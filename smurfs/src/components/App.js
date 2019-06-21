@@ -8,7 +8,7 @@ import Smurf from "./Smurf";
 const App = () => {
   return (
     <div className="App">
-      <Route path="/smurfs" component={SmurfList} />
+      <Route path="/smurfs" render={props => <SmurfList {...props} />} />
       <Route path="/smurfs/:id" component={Smurf} />
     </div>
   );

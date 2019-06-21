@@ -23,7 +23,7 @@ export const fetchSmurfs = () => dispatch => {
     });
 };
 
-/* POST SMURFS */
+/* POST SMURF */
 
 export const ADD_SMURF_PENDING = "ADD_SMURF_PENDING";
 export const ADD_SMURF_SUCCESS = "ADD_SMURF_SUCCESS";
@@ -42,6 +42,29 @@ export const addSmurf = smurf => dispatch => {
       dispatch({
         type: ADD_SMURF_FAILURE,
         payload: "You smurfed up! Can't add Smurf :C"
+      });
+    });
+};
+
+/* DELETE SMURF */
+
+export const DELETE_SMURF_PENDING = "DELETE_SMURF_PENDING";
+export const DELETE_SMURF_SUCCESS = "DELETE_SMURF_SUCCESS";
+export const DELETE_SMURF_FAILURE = "DELETE_SMURF_FAILURE";
+
+export const deleteSmurf = id => dispatch => {
+  dispatch({ type: DELETE_SMURF_PENDING });
+  axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: DELETE_SMURF_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({
+        type: DELETE_SMURF_FAILURE,
+        payload: "You smurfed up! Can't delete Smurf :C"
       });
     });
 };

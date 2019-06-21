@@ -1,14 +1,15 @@
 import React from "react";
+import { Route } from "react-router-dom";
 
 import "./App.css";
 import SmurfList from "./SmurfList";
-import SmurfForm from "./SmurfForm";
+import Smurf from "./Smurf";
 
 const App = () => {
   return (
     <div className="App">
-      <SmurfList />
-      <SmurfForm />
+      <Route path="/smurfs" component={SmurfList} />
+      <Route path="/smurfs/:id" component={Smurf} />
     </div>
   );
 };

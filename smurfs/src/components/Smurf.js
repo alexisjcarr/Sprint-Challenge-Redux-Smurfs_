@@ -1,15 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-const Smurf = props => {
-  return (
-    <div>
-      <h1>
-        {props.smurf.name} <i class="fas fa-user-minus" />
-      </h1>
-      <p>age: {props.smurf.age} in Smurf years</p>
-      <p>height: {props.smurf.height}</p>
-    </div>
-  );
-};
+class Smurf extends Component {
+  render() {
+    return (
+      <Link to={`/smurfs/${this.props.id}`}>
+        <h1>
+          {this.props.smurf.name} <i className="fas fa-user-minus" />
+        </h1>
+        <p>age: {this.props.smurf.age} in Smurf years</p>
+        <p>height: {this.props.smurf.height}</p>
+      </Link>
+    );
+  }
+}
 
 export default Smurf;

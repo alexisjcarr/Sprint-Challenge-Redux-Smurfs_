@@ -24,9 +24,20 @@ class SmurfForm extends Component {
     });
   };
 
+  addSmurf = e => {
+    this.props.addSmurf(this.state.smurf);
+    this.setState({
+      smurf: {
+        name: "",
+        age: "",
+        height: ""
+      }
+    });
+  };
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.addSmurf}>
         <input
           name="name"
           type="text"
